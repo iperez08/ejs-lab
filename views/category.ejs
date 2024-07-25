@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<% let firstLetter = category.charAt(0) %>
+<% let capitalizedFirstL = firstLetter.toUpperCase() %>
+<% let capitalizedWord = capitalizedFirstL + category.slice(1) %>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= capitalizedWord %>
+    </title>
+</head>
+<%- include('./partials/nav') %>
+    <body>
+        <h1>
+            <%= capitalizedWord %>
+        </h1>
+        <% menu.forEach((item)=> { %>
+            <% if (item.category === category) { %>
+            <p>
+                <%= item.name %>
+            </p>
+            <ul type="none">
+                <li> Price: <%= item.price %>
+                </li>
+                <li> Rating: <%= item.rating %>
+                </li>
+                <li> Deets: <%= item.details %>
+                </li>
+            </ul>
+            <% } %>
+            <% }) %>
+    </body>
+
+</html>
